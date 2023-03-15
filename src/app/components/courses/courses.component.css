@@ -2,5 +2,69 @@
   height: 95%;
   width: 95%;
   margin-bottom: 4px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.course-name {
+  color: white;
+  font-weight: 700;
+  border-top: solid 5px white;
+  background-color: darkslateblue;
+  padding: 10px;
+  height: 60px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.rank-lessons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.rank-lessons-element {
+  text-align: center;
   margin: 5px;
+  font-weight: 500;
+  font-style: italic;
+  color: white;
+  background-color: black;
+  padding: 10px;
+}
+
+.skills {
+  font-size: small;
+  padding-left: 20px;
+  font-weight: 600;
+}
+
+.skills-title {
+  text-align: center;
+  margin: 10px;
+  font-weight: 600;
+}
+
+.skills-block {
+  background-color: whitesmoke;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 165px;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: whitesmoke;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: black;
 }

@@ -1,3 +1,18 @@
 <div class="card">
-  <h1>{{ course.title }}</h1>
+  <img
+    src="{{ course.previewImageLink }}"
+    alt="course image"
+    onerror="this.src='https://www.quasa.io/storage/photos/%D0%A4%D0%BE%D1%82%D0%BE%2014/acour%201.jpeg'"
+  />
+  <p class="course-name">{{ course.title }}</p>
+  <div class="rank-lessons">
+    <p class="rank-lessons-element">Rating: {{ course.rating }}</p>
+    <p class="rank-lessons-element">Lessons: {{ course.lessonsCount }}</p>
+  </div>
+  <div class="skills-block">
+    <p class="skills-title">Skills:</p>
+    <ul class="skills" *ngFor="let skill of course.meta.skills">
+      <li>{{ skill }}</li>
+    </ul>
+  </div>
 </div>

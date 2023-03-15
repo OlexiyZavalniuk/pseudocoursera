@@ -57,7 +57,7 @@ body {
   font-size: 25px;
   background-color: darkslateblue;
   border: outset darkgray 5px;
-  color: black;
+  color: white;
   font-weight: 900;
   padding-left: 8px;
   padding-right: 8px;
@@ -73,8 +73,7 @@ body {
 
 .card {
   padding: 5px;
-  height: 1fr;
-  border: inset darkgray 10px;
+  height: 500px;
 }
 
 .card:hover {
@@ -87,7 +86,8 @@ body {
   color: white;
   padding-top: 5px;
   padding-bottom: 7px;
-  border: inset darkgray 10px;
+  border-bottom: solid 3px white;
+  background-color: darkslateblue;
 }
 
 .courses-header-size1 {
@@ -108,4 +108,46 @@ body {
 ::-webkit-scrollbar-thumb {
   background-color: darkcyan;
   border: outset darkgray 6px;
+}
+
+.page-buttons {
+  height: 1fr;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.page-button {
+  height: auto;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  margin: 5px;
+}
+
+.button-name {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  border: outset darkgray 5px;
+  background-color: darkcyan;
+  color: white;
+  font-size: x-large;
+  font-weight: 600;
+}
+
+.button-name:hover {
+  border: outset black 5px;
+}
+
+.button-name:active {
+  background-color: darkslateblue;
+}
+
+.page-info {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  height: 1fr;
+  margin: 5px;
+  margin-top: auto;
 }
