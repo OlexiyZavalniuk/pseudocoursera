@@ -4,7 +4,18 @@
       uncovered ? 'courses-box-size2' : 'courses-box-size1'
     }}"
   >
-    <app-courses></app-courses>
+    <h2
+      class="courses-header {{
+        uncovered ? 'courses-header-size2' : 'courses-header-size1'
+      }}"
+    >
+      Courses
+    </h2>
+    <div *ngFor="let course of courses">
+      <div class="card">
+        <app-courses [course]="course"></app-courses>
+      </div>
+    </div>
   </div>
   <div
     class="course-box {{ uncovered ? 'course-box-size2' : 'course-box-size1' }}"
