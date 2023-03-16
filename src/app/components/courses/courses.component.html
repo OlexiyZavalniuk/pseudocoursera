@@ -1,10 +1,14 @@
 <div class="card">
-  <img
-    src="{{ course.previewImageLink }}"
-    alt="course image"
-    onerror="this.src='https://www.quasa.io/storage/photos/%D0%A4%D0%BE%D1%82%D0%BE%2014/acour%201.jpeg'"
-  />
-  <p class="course-name">{{ course.title }}</p>
+  <div class="img-block">
+    <img
+      src="{{ course.previewImageLink }}/cover.webp"
+      alt="course image"
+      onerror="this.src='https://www.quasa.io/storage/photos/%D0%A4%D0%BE%D1%82%D0%BE%2014/acour%201.jpeg'"
+    />
+  </div>
+  <div class="course-name-block">
+    <p class="course-name">{{ course.title }}</p>
+  </div>
   <div class="rank-lessons">
     <p class="rank-lessons-element">Rating: {{ course.rating }}</p>
     <p class="rank-lessons-element">Lessons: {{ course.lessonsCount }}</p>

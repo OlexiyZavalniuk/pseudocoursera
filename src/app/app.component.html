@@ -4,33 +4,38 @@
       uncovered ? 'courses-box-size2' : 'courses-box-size1'
     }}"
   >
-    <h2
-      class="courses-header {{
-        uncovered ? 'courses-header-size2' : 'courses-header-size1'
-      }}"
-    >
-      Courses
-    </h2>
-    <div *ngFor="let course of getPage()">
-      <div class="card">
-        <app-courses [course]="course"></app-courses>
-      </div>
-    </div>
-    <div class="page-buttons">
-      <h2 class="page-info courses-header">Page {{ page }}/{{ pageCount }}</h2>
-      <div class="page-button">
-        <button *ngIf="page > 1" (click)="page = page - 1" class="button-name">
-          <
-        </button>
-      </div>
-      <div class="page-button">
-        <button
-          *ngIf="page < pageCount"
-          (click)="page = page + 1"
-          class="button-name"
+    <h2 class="courses-header">Courses</h2>
+    <div class="courses-box-items">
+      <div *ngFor="let course of getPage()">
+        <div
+          class="card {{ course.id == courseId ? 'card card-active' : 'card' }}"
+          (click)="changeCourse(course.id)"
         >
+          <app-courses [course]="course"></app-courses>
+        </div>
+      </div>
+      <div class="page-buttons">
+        <h2 class="page-info courses-header">
+          Page {{ page }}/{{ pageCount }}
+        </h2>
+        <div class="page-button">
+          <button
+            *ngIf="page > 1"
+            (click)="page = page - 1"
+            class="button-name"
           >
-        </button>
+            <
+          </button>
+        </div>
+        <div class="page-button">
+          <button
+            *ngIf="page < pageCount"
+            (click)="page = page + 1"
+            class="button-name"
+          >
+            >
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -39,6 +44,6 @@
   >
     <button class="uncover-button" (click)="uncovered = !uncovered">
       {{ uncovered ? ">" : "<" }}</button
-    ><app-course></app-course>
+    ><app-course [course]="courseDetails" [opened]="uncovered"></app-course>
   </div>
 </div>

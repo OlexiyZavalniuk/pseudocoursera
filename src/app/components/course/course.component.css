@@ -1,0 +1,66 @@
+.closed-block {
+  overflow-y: scroll;
+  height: 90%;
+  position: relative;
+  margin: auto;
+}
+
+.centered-c {
+  position: absolute;
+  top: 20%;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: darkslateblue;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: darkslateblue;
+  border: outset darkgray 5px;
+}
+
+.title-c {
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  border-bottom: solid 3px white;
+}
+
+h2 {
+  margin: 0;
+}
+
+.description-block-c {
+  color: white;
+  padding: 10px;
+  font-weight: 500;
+}
+
+p {
+  margin: 0;
+}
+
+.rank-lessons-c {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: center;
+}
+
+.rank-lessons-element-c {
+  font-size: smaller;
+  font-weight: 500;
+  font-style: italic;
+  color: white;
+  background-color: black;
+  padding: 5px;
+}
+
+.video-block {
+  max-width: 100%;
+}
+
+video {
+  margin: 20px;
+  width: 90%;
+}

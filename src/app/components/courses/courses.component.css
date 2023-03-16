@@ -5,32 +5,54 @@
   margin: auto;
   margin-top: 10px;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 img {
-  width: 100%;
-  margin-bottom: 10px;
+  max-height: 95%;
+  max-width: 95%;
+  vertical-align: middle;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.img-block {
+  height: 30%;
+  min-height: 30%;
+  background-color: white;
+  position: relative;
+}
+
+.course-name-block {
+  height: 19%;
+  background-color: darkslateblue;
+  text-align: left;
 }
 
 .course-name {
   color: white;
   font-weight: 700;
-  border-top: solid 5px white;
   background-color: darkslateblue;
   padding: 10px;
-  height: 60px;
   display: table-cell;
   vertical-align: middle;
+  grid-row-start: 17;
+  grid-row-end: 25;
 }
 
 .rank-lessons {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-row-start: 25;
+  grid-row-end: 30;
 }
 
 .rank-lessons-element {
-  text-align: center;
-  margin: 5px;
+  margin: 0;
   font-weight: 500;
   font-style: italic;
   color: white;
@@ -42,10 +64,10 @@ img {
   font-size: small;
   padding-left: 20px;
   font-weight: 600;
+  text-align: left;
 }
 
 .skills-title {
-  text-align: center;
   margin: 10px;
   font-weight: 600;
 }
@@ -56,8 +78,10 @@ img {
   padding-top: 5px;
   padding-left: 5px;
   padding-right: 5px;
-  height: 165px;
+  height: 38%;
   overflow-y: auto;
+  grid-row-start: 30;
+  grid-row-end: 48;
 }
 
 ::-webkit-scrollbar {
@@ -66,5 +90,5 @@ img {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: black;
+  background-color: gray;
 }

@@ -1,1 +1,15 @@
-<h1>Course</h1>
+<div *ngIf="!opened" class="closed-block">
+  <div class="centered-c">
+    <div class="title-c">
+      <h2>{{ course.title }}</h2>
+    </div>
+    <div class="description-block-c">
+      <p>{{ course.description }}</p>
+    </div>
+    <div class="rank-lessons-c">
+      <p class="rank-lessons-element-c">Lessons: {{ course.lessons.length }}</p>
+      <p class="rank-lessons-element-c">Duration: {{ course.duration }}</p>
+    </div>
+  </div>
+</div>
+<div *ngIf="opened" class="video-block"></div>
