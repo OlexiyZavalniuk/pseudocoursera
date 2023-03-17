@@ -12,4 +12,20 @@
     </div>
   </div>
 </div>
-<div *ngIf="opened" class="video-block"></div>
+<div *ngIf="opened" class="open-block">
+  <div class="video-block">
+    <app-video
+      [posterUrl]="course.previewImageLink + '/cover.webp'"
+      [videoUrl]="course.meta.courseVideoPreview.link"
+    ></app-video>
+  </div>
+  <h2 class="video-title">{{ title }}</h2>
+
+  <div class="lessons-block">
+    <div class="lessons-scroll">
+      <div *ngFor="let lesson of course.lessons">
+        <button class="lesson-button">{{ lesson.title }}</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -4,11 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Course } from './components/course/course.component';
-import { Courses } from './components/courses/courses.component';
+import { CourseComponent } from './components/course/course.component';
+import { CoursesComponent } from './components/courses/courses.component';
+import { VideoComponent } from './components/video/video.component';
 
 @NgModule({
-  declarations: [AppComponent, Course, Courses],
+  declarations: [
+    AppComponent,
+    CourseComponent,
+    CoursesComponent,
+    VideoComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

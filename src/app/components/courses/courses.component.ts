@@ -6,7 +6,7 @@ import { ICourse } from 'src/app/models/course';
   templateUrl: './courses.component.html',
   styleUrls: ['./courses.component.css'],
 })
-export class Courses {
+export class CoursesComponent {
   @Input() course: ICourse = {
     id: '',
     title: '',

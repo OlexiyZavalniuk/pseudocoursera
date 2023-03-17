@@ -6,7 +6,7 @@ import { ICourseDetails } from 'src/app/models/course-details';
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.css'],
 })
-export class Course {
+export class CourseComponent {
   @Input() course: ICourseDetails = {
     id: '',
     title: '',
@@ -30,4 +30,5 @@ export class Course {
     containsLockedLessons: false,
   };
   @Input() opened: boolean = false;
+  title: string = 'Course Intro';
 }
