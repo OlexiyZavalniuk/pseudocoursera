@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { ICoursesRequest } from '../models/course';
 import { from, Observable, switchMap } from 'rxjs';
-import { ICourseDetails } from '../models/course-details';
+import { ICourseDetails, ICourseDetails2 } from '../models/course-details';
 
 @Injectable({ providedIn: 'root' })
 export class CourseService {
@@ -27,14 +27,14 @@ export class CourseService {
     );
   }
 
-  getCourse(courseId: string): Observable<ICourseDetails> {
+  getCourse(courseId: string): Observable<ICourseDetails | ICourseDetails2> {
     return from(
       this.http.get<{ token: string }>(
         'https://api.wisey.app/api/v1/auth/anonymous?platform=subscriptions'
       )
     ).pipe(
       switchMap((tokenResponse) =>
-        this.http.get<ICourseDetails>(
+        this.http.get<ICourseDetails | ICourseDetails2>(
           `https://api.wisey.app/api/v1/core/preview-courses/${courseId}`,
           {
             headers: {

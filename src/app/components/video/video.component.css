@@ -9,3 +9,6 @@ video {
   right: 0;
   margin: auto;
 }
+.video-autoplay {
+  max-height: 95%;
+}

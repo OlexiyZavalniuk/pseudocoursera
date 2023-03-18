@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ICourse } from './models/course';
 import { CourseService } from './services/course-service';
 import { ceil } from 'mathjs';
-import { ICourseDetails } from './models/course-details';
+import { ICourseDetails, ICourseDetails2 } from './models/course-details';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,7 +24,7 @@ export class AppComponent {
   courseId: string = '';
   page: number = 1;
   pageCount: number = 1;
-  courseDetails: ICourseDetails = {
+  courseDetails: ICourseDetails | ICourseDetails2 = {
     id: '',
     title: '',
     tags: [],

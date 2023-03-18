@@ -7,6 +7,8 @@ import { ICourse } from 'src/app/models/course';
   styleUrls: ['./courses.component.css'],
 })
 export class CoursesComponent {
+  constructor() {}
+
   @Input() course: ICourse = {
     id: '',
     title: '',
@@ -29,4 +31,6 @@ export class CoursesComponent {
       },
     },
   };
+
+  cursorOnCard: boolean = false;
 }

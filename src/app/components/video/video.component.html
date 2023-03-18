@@ -1,7 +1,19 @@
 <video
+  *ngIf="!isAutoplay"
   [poster]="posterUrl"
   #videoPlayer
-  id="videoPlayer"
   controls
+  id="videoPlayer"
+  height="1200px"
+></video>
+
+<video
+  *ngIf="isAutoplay"
+  class="video-autoplay"
+  [poster]="posterUrl"
+  #videoPlayer
+  [muted]="'muted'"
+  autoplay
+  id="videoPlayer"
   height="1200px"
 ></video>

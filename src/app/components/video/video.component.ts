@@ -12,6 +12,7 @@ export class VideoComponent {
   private hls!: Hls;
   @Input() posterUrl: string = '';
   @Input() videoUrl: string = '';
+  @Input() isAutoplay: boolean = false;
 
   ngAfterViewInit() {
     this.hls = new Hls();

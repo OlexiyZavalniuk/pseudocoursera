@@ -28,9 +28,7 @@
             '.webp'
       "
       [videoUrl]="
-        chosenLesson.link == ''
-          ? course.meta.courseVideoPreview.link
-          : chosenLesson.link
+        chosenLesson.link == '' ? getIntroVideoLink() : chosenLesson.link
       "
     ></app-video>
   </div>
