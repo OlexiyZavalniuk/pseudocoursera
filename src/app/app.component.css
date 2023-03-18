@@ -41,6 +41,7 @@ body {
   background-color: darkslateblue;
   border: inset darkgray 10px;
   padding: 10px;
+  overflow-y: scroll;
 }
 
 .course-box-size1 {
@@ -96,14 +97,24 @@ body {
   background-color: darkslateblue;
 }
 
-::-webkit-scrollbar {
+.courses-box::-webkit-scrollbar {
   width: 20px;
   background-color: darkcyan;
 }
 
-::-webkit-scrollbar-thumb {
+.courses-box::-webkit-scrollbar-thumb {
   background-color: darkcyan;
   border: outset darkgray 6px;
+}
+
+.course-box::-webkit-scrollbar {
+  width: 10px;
+  background-color: darkslateblue;
+}
+
+.course-box::-webkit-scrollbar-thumb {
+  background-color: darkslateblue;
+  border: outset darkgray 3px;
 }
 
 .page-buttons {

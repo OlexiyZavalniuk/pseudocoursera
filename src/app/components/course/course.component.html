@@ -7,25 +7,55 @@
       <p>{{ course.description }}</p>
     </div>
     <div class="rank-lessons-c">
-      <p class="rank-lessons-element-c">Lessons: {{ course.lessons.length }}</p>
-      <p class="rank-lessons-element-c">Duration: {{ course.duration }}</p>
+      <p class="rank-lessons-element-c">
+        All lessons: {{ course.lessons.length }}
+      </p>
+      <p class="rank-lessons-element-c">
+        Duration: {{ (course.duration / 60).toFixed(0) }} min
+      </p>
     </div>
   </div>
 </div>
-<div *ngIf="opened" class="open-block">
+<div *ngIf="opened && course.lessons.length > 0" class="open-block">
   <div class="video-block">
     <app-video
-      [posterUrl]="course.previewImageLink + '/cover.webp'"
-      [videoUrl]="course.meta.courseVideoPreview.link"
+      [posterUrl]="
+        chosenLesson.previewImageLink == ''
+          ? course.previewImageLink + '/cover.webp'
+          : chosenLesson.previewImageLink +
+            '/lesson-' +
+            chosenLesson.order +
+            '.webp'
+      "
+      [videoUrl]="
+        chosenLesson.link == ''
+          ? course.meta.courseVideoPreview.link
+          : chosenLesson.link
+      "
     ></app-video>
   </div>
-  <h2 class="video-title">{{ title }}</h2>
+  <h2 class="video-title">{{ chosenLesson.title }}</h2>
 
   <div class="lessons-block">
-    <div class="lessons-scroll">
-      <div *ngFor="let lesson of course.lessons">
-        <button class="lesson-button">{{ lesson.title }}</button>
-      </div>
+    <div *ngFor="let lesson of course.lessons">
+      <p
+        class="lesson-button"
+        class="{{
+          lesson.status == 'unlocked'
+            ? lesson.id == chosenLesson.id
+              ? 'lesson-button-unlocked-chosen'
+              : 'lesson-button-unlocked-unchosen'
+            : 'lesson-button-locked'
+        }}"
+        (click)="
+          chosenLesson = lesson.status == 'unlocked' ? lesson : chosenLesson
+        "
+      >
+        Lesson {{ lesson.order }}: {{ lesson.title }}
+      </p>
     </div>
   </div>
+</div>
+<div *ngIf="opened && course.lessons.length == 0" class="no-video-block">
+  <h1 class="no-video-title">This course has no videos</h1>
 </div>

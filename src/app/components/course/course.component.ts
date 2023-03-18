@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ICourseDetails } from 'src/app/models/course-details';
+import { ILesson } from 'src/app/models/lesson';
 
 @Component({
   selector: 'app-course',
@@ -30,5 +31,25 @@ export class CourseComponent {
     containsLockedLessons: false,
   };
   @Input() opened: boolean = false;
-  title: string = 'Course Intro';
+  chosenLesson: ILesson = {
+    id: '',
+    title: 'Course Intro',
+    duration: 0,
+    order: 0,
+    type: '',
+    status: '',
+    link: '',
+    previewImageLink: '',
+    meta: '',
+  };
+
+  ngOnChanges() {
+    this.chosenLesson.link = '';
+    this.chosenLesson.previewImageLink = '';
+    this.chosenLesson.title = 'Course Intro';
+    this.course.lessons = this.course.lessons.filter(
+      (lesson) => lesson.type == 'video'
+    );
+    this.course.lessons.sort((a, b) => (a.order > b.order ? 1 : -1));
+  }
 }
