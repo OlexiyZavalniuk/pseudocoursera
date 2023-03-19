@@ -3,15 +3,22 @@ import { ICourse } from './models/course';
 import { CourseService } from './services/course-service';
 import { ceil } from 'mathjs';
 import { ICourseDetails, ICourseDetails2 } from './models/course-details';
+import { ILesson } from './models/lesson';
+import { LocalStorageService } from './services/local-storage-service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor(private service: CourseService) {
+  constructor(
+    private service: CourseService,
+    private localStorageService: LocalStorageService
+  ) {
     this.service.getCourses().subscribe((request) => {
-      this.courses = request.courses;
+      this.courses = request.courses.sort((a, b) =>
+        Date.parse(a.launchDate) < Date.parse(b.launchDate) ? 1 : -1
+      );
       this.pageCount = ceil(this.courses.length / 10);
       this.courseId = this.getPage()[0].id;
       this.getCourse();
@@ -63,5 +70,26 @@ export class AppComponent {
   changeCourse(id: string) {
     this.courseId = id;
     this.getCourse();
+  }
+
+  getLastLesson(): ILesson {
+    let lastLesson: ILesson = {
+      id: '',
+      title: 'Course Intro',
+      duration: 0,
+      order: 0,
+      type: '',
+      status: '',
+      link: '',
+      previewImageLink: '',
+      meta: '',
+    };
+
+    const lesson = this.localStorageService.getItem(this.courseDetails.id);
+    if (lesson) {
+      lastLesson = lesson;
+    }
+
+    return lastLesson;
   }
 }

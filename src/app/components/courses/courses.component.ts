@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ICourse } from 'src/app/models/course';
+//import { CourseService } from 'src/app/services/course-service';
 
 @Component({
   selector: 'app-courses',
@@ -7,7 +8,7 @@ import { ICourse } from 'src/app/models/course';
   styleUrls: ['./courses.component.css'],
 })
 export class CoursesComponent {
-  constructor() {}
+  constructor(/*private service: CourseService*/) {}
 
   @Input() course: ICourse = {
     id: '',
@@ -33,4 +34,13 @@ export class CoursesComponent {
   };
 
   cursorOnCard: boolean = false;
+
+  // метод для перевірки доступності прев'ю-відео, щоб не змінювати при ховері
+  // картинку курсу на відео, яке не прогружається. Але не працює, хз чого =(
+
+  // isAvailable() {
+  //   this.service
+  //     .isResourceAvailable(this.course.meta.courseVideoPreview.link)
+  //     .then((result) => (this.cursorOnCard = result));
+  // }
 }

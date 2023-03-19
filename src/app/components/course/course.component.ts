@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ICourseDetails, ICourseDetails2 } from 'src/app/models/course-details';
 import { ILesson } from 'src/app/models/lesson';
+import { LocalStorageService } from 'src/app/services/local-storage-service';
 
 @Component({
   selector: 'app-course',
@@ -8,6 +9,8 @@ import { ILesson } from 'src/app/models/lesson';
   styleUrls: ['./course.component.css'],
 })
 export class CourseComponent {
+  constructor(private localStorageService: LocalStorageService) {}
+
   @Input() course: ICourseDetails | ICourseDetails2 = {
     id: '',
     title: '',
@@ -32,7 +35,7 @@ export class CourseComponent {
   };
   @Input() opened: boolean = false;
 
-  chosenLesson: ILesson = {
+  @Input() chosenLesson: ILesson = {
     id: '',
     title: 'Course Intro',
     duration: 0,
@@ -50,17 +53,23 @@ export class CourseComponent {
     );
     this.course.lessons.sort((a, b) => (a.order > b.order ? 1 : -1));
 
-    if (this.getIntroVideoLink() != '') {
-      this.chosenLesson.link = '';
-      this.chosenLesson.previewImageLink = '';
-      this.chosenLesson.title = 'Course Intro';
-    } else {
-      this.chosenLesson.link = this.course.lessons[0].link;
-      this.chosenLesson.previewImageLink =
-        this.course.lessons[0].previewImageLink;
-      this.chosenLesson.title = this.course.lessons[0].title;
-      this.chosenLesson.id = this.course.lessons[0].id;
+    if (this.chosenLesson.id == '') {
+      if (this.getIntroVideoLink() != '') {
+        this.chosenLesson.link = '';
+        this.chosenLesson.previewImageLink = '';
+        this.chosenLesson.title = 'Course Intro';
+      } else {
+        this.chosenLesson.link = this.course.lessons[0].link;
+        this.chosenLesson.previewImageLink =
+          this.course.lessons[0].previewImageLink;
+        this.chosenLesson.title = this.course.lessons[0].title;
+        this.chosenLesson.id = this.course.lessons[0].id;
+      }
     }
+  }
+
+  saveChosenLesson() {
+    this.localStorageService.setItem(this.course.id, this.chosenLesson);
   }
 
   getIntroVideoLink(): string {

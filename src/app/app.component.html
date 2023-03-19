@@ -44,6 +44,10 @@
   >
     <button class="uncover-button" (click)="uncovered = !uncovered">
       {{ uncovered ? ">" : "<" }}</button
-    ><app-course [course]="courseDetails" [opened]="uncovered"></app-course>
+    ><app-course
+      [course]="courseDetails"
+      [opened]="uncovered"
+      [chosenLesson]="getLastLesson()"
+    ></app-course>
   </div>
 </div>

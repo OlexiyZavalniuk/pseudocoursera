@@ -46,7 +46,8 @@
             : 'lesson-button-locked'
         }}"
         (click)="
-          chosenLesson = lesson.status == 'unlocked' ? lesson : chosenLesson
+          chosenLesson = lesson.status == 'unlocked' ? lesson : chosenLesson;
+          saveChosenLesson()
         "
       >
         Lesson {{ lesson.order }}: {{ lesson.title }}

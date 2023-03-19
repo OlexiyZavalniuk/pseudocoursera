@@ -45,4 +45,12 @@ export class CourseService {
       )
     );
   }
+
+  // isResourceAvailable(link: string): Promise<boolean> {
+  //   return this.http
+  //     .get(link)
+  //     .toPromise()
+  //     .then(() => true)
+  //     .catch(() => false);
+  // }
 }
